@@ -1,0 +1,7 @@
+flask
+pandas
+requests
+pdfplumber
+scikit-learn
+mysql.connector
+pymysql

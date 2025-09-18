@@ -1,0 +1,43 @@
+internship_id,company_name,title,required_skills,location,duration_months,seats,stipend_inr,sector,is_demo
+I001,IoT Makers,Machine Learning Intern,Excel;Django,Pune,6,2,5000,AI/Research,True
+I002,LegalAssist,Cyber Security Intern,Statistics;SQL;TensorFlow;CSS;Node.js,Jaipur,1,5,25000,Cyber Security,True
+I003,AI StartUp XYZ,Program Support Intern,Node.js;Kubernetes;Figma;Excel;Python,Bhopal,6,2,18000,Social Impact,True
+I004,WebWorks,UX/UI Intern,CSS;MATLAB;PyTorch,Mumbai,1,4,15000,Design,True
+I005,CloudEdge,IoT Intern,Statistics;AWS;Data Visualization;NLP,Raipur,1,4,25000,IoT,True
+I006,DesignWorks,IoT Intern,UX Design;HTML;Solidity;Deep Learning,Bengaluru,2,6,12000,IoT,True
+I007,Cognizant,EdTech Product Intern,Networking;Excel,Kolkata,3,6,8000,EdTech,True
+I008,Blockchain Hub,Blockchain Intern,Go;Excel;Blockchain,Raipur,6,6,5000,Blockchain,True
+I009,SocialImpact NGO,Healthcare Data Intern,JavaScript;AWS;Networking,Ahmedabad,6,6,25000,Healthcare,True
+I010,HealthTech NGO,Cloud Operations Intern,Node.js;Statistics,Bhopal,4,3,12000,Cloud,True
+I011,HCLTech,Agri Data Intern,CSS;Embedded C;GCP;Cryptography,Raipur,4,6,8000,Agritech,True
+I012,AgriTech Solutions,Finance Analyst Intern,AutoCAD;Data Visualization;Flask,Gandhinagar,4,5,18000,Finance,True
+I013,Blockchain Hub,EdTech Product Intern,Tableau;GCP;TensorFlow,Bhopal,1,1,8000,EdTech,True
+I014,IoT Makers,Healthcare Data Intern,SolidWorks;Deep Learning;Networking;AWS;PowerBI,Ahmedabad,1,5,5000,Healthcare,True
+I015,LegalAssist,UX/UI Intern,NLP;Accounting;Docker;JavaScript,Kolkata,6,1,12000,Design,True
+I016,SmartCity Solutions,Healthcare Data Intern,Robotics Kinematics;Finance,Patna,5,6,10000,Healthcare,True
+I017,IBM,Blockchain Intern,Data Visualization;PowerBI;Python,Lucknow,4,3,0,Blockchain,True
+I018,TechMahindra,Blockchain Intern,Django;Machine Learning;UX Design;TensorFlow,Mumbai,4,6,5000,Blockchain,True
+I019,LegalAssist,Finance Analyst Intern,Go;Azure;AutoCAD,Delhi,5,3,18000,Finance,True
+I020,FinServe Pvt Ltd,Program Support Intern,Solidity;Finance;Cryptography,Remote,3,6,20000,Social Impact,True
+I021,LogiCorp,Legal Research Intern,Django;Node.js,Mumbai,1,3,25000,Legal,True
+I022,HealthTech NGO,XR Developer Intern,Python;Deep Learning;Solidity,Remote,2,1,5000,XR/AR,True
+I023,Wipro,Cloud Operations Intern,Tableau;Django,Ahmedabad,4,6,10000,Cloud,True
+I024,LegalAssist,Finance Analyst Intern,Django;Azure;Linux;HTML;PyTorch,Mumbai,4,6,15000,Finance,True
+I025,RetailTech,Retail Analytics Intern,Machine Learning;Rust;Embedded C;PyTorch;Cryptography,Gandhinagar,1,3,10000,Retail,True
+I026,AI StartUp XYZ,Agri Data Intern,Computer Vision;Docker;React;Excel;AWS,Pune,4,1,25000,Agritech,True
+I027,LTI,Web Developer Intern,TensorFlow;Django,Delhi,4,4,20000,Web Development,True
+I028,FinServe Pvt Ltd,Energy Systems Intern,JavaScript;Networking,Bengaluru,3,4,20000,Energy,True
+I029,DesignWorks,Retail Analytics Intern,Java;HTML;Accounting;CSS;Machine Learning,Lucknow,5,6,0,Retail,True
+I030,DataLabs,Web Developer Intern,Figma;Azure,Jaipur,2,5,0,Web Development,True
+I031,SmartCity Solutions,Cyber Security Intern,Deep Learning;SolidWorks;Rust,Patna,4,2,5000,Cyber Security,True
+I032,RetailHive,EdTech Product Intern,Control Systems;TensorFlow,Hyderabad,5,6,25000,EdTech,True
+I033,DataLabs,UX/UI Intern,Go;Solidity;R,Pune,4,3,8000,Design,True
+I034,Quantum Labs,Legal Research Intern,Deep Learning;Python;AWS;Control Systems,Lucknow,1,1,25000,Legal,True
+I035,FinServe Pvt Ltd,GovTech Intern,Computer Vision;C++;Deep Learning;Django,Chennai,2,3,20000,GovTech,True
+I036,LegalAssist,Robotics Intern,Go;AutoCAD,Ahmedabad,1,6,8000,Robotics,True
+I037,AgriTech Solutions,Machine Learning Intern,AutoCAD;Java,Ahmedabad,5,3,10000,AI/Research,True
+I038,WebWorks,Agri Data Intern,Tableau;GCP;Flask;Machine Learning,Mumbai,4,6,12000,Agritech,True
+I039,Wipro,Data Analyst Intern,Computer Vision;Robotics Kinematics;Flask;JavaScript,Gandhinagar,5,4,18000,IT/Analytics,True
+I040,MarketPulse,Data Analyst Intern,Deep Learning;Blockchain,Raipur,5,2,0,IT/Analytics,True
+I041,Tech Holding ,Frontend Developer ,React ,mumbai ,1,10,15000,web ,No
+I041,Tech Holding ,data science,"Python , Gen AI , Machine learning , Deep learning , Maths",tamil nadu,32,10,2000,AI/research,No

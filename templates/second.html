@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Internships - Skills2Career</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background: #f4f6f9;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      margin-top: 50px;
+    }
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .btn-custom {
+      background: #667eea;
+      color: white;
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background: #764ba2;
+    }
+    .res-card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .res-card h3 {
+      color: #333;
+      font-size: 18px;
+    }
+    .res-card .meta {
+      font-size: 14px;
+      color: gray;
+    }
+    .res-card .score {
+      font-weight: bold;
+      color: #667eea;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">Find the Best Internship for You</h1>
+    
+    <!-- User Input Form -->
+    <div class="card p-4">
+      <form id="recommendForm">
+        <div class="mb-3">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Preferred Role</label>
+          <input type="text" class="form-control" id="role" placeholder="e.g. Data Science Intern" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Location</label>
+          <input type="text" class="form-control" id="location" placeholder="e.g. Bengaluru" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Your Skills (comma separated)</label>
+          <input type="text" class="form-control" id="skills" placeholder="Python, SQL, Machine Learning" required>
+        </div>
+        <button type="submit" class="btn-custom">Get Recommendations</button>
+      </form>
+    </div>
+
+    <!-- Resume Upload -->
+    <div class="card p-4 mt-4">
+      <h4>Or Upload Your Resume</h4>
+      <form id="resumeForm" enctype="multipart/form-data">
+        <div class="mb-3">
+          <input type="file" class="form-control" name="resume" accept=".pdf,.docx,.txt" required>
+        </div>
+        <button type="submit" class="btn-custom">Upload & Get Recommendations</button>
+      </form>
+    </div>
+
+    <!-- Results -->
+    <div class="mt-5">
+      <h3>Recommended Internships</h3>
+      <div id="results"></div>
+    </div>
+  </div>
+
+  <script>
+    // Handle manual input recommendation
+    document.getElementById("recommendForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const role = document.getElementById("role").value;
+      const location = document.getElementById("location").value;
+      const skills = document.getElementById("skills").value;
+
+      fetch("/recommend", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({name, role, location, skills})
+      })
+      .then(res => res.json())
+      .then(data => {
+        renderResults(data.results);
+      })
+      .catch(err => console.error("Error:", err));
+    });
+
+    // Handle resume upload
+    document.getElementById("resumeForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const formData = new FormData(this);
+      fetch("/upload_resume", {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        renderResults(data);
+      })
+      .catch(err => console.error("Error:", err));
+    });
+
+    // Render results
+function renderResults(data){
+  const resultsDiv = document.getElementById("results");
+  resultsDiv.innerHTML = '';
+  if(!data || data.length === 0){
+    resultsDiv.innerHTML = '<p>No internships found. Try adding more skills or uploading your resume.</p>';
+    return;
+  }
+
+  data.forEach(item=>{
+    const rc = document.createElement("div");
+    rc.className = "res-card";
+    rc.innerHTML = `
+      <h3>${item.Role} at ${item.Company_Name}</h3>
+      <div class="meta">Location: ${item.Location} • Skills: ${item.Required_Skills}</div>
+      <div class="score">Match Score: ${item["Match_Score(%)"]}%</div>
+      <button class="btn-custom apply-btn" data-internship='${JSON.stringify(item)}'>Apply</button>
+    `;
+    resultsDiv.appendChild(rc);
+
+    // Attach click event to the new Apply button
+    rc.querySelector(".apply-btn").addEventListener("click", function(){
+      const internshipData = JSON.parse(this.getAttribute("data-internship"));
+      fetch("/apply", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(internshipData)
+      })
+      .then(res => res.json())
+      .then(resp => {
+        alert(resp.message);  // Confirmation
+      })
+      .catch(err => console.error("Error:", err));
+    });
+  });
+}
+
+  </script>
+</body>
+</html>

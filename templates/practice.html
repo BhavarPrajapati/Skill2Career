@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skill2Career - Upload Internship</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    form {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #3498db;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    /* Success popup */
+    #successPopup {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #2ecc71;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+      animation: slideIn 0.5s ease, fadeOut 1s ease 2.5s forwards;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; transform: translateY(-50px); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Skill2Career - Upload Internship</h1>
+
+  <form id="internshipForm">
+    <input type="text" name="internship_id" placeholder="Internship ID" required>
+    <input type="text" name="company_name" placeholder="Company Name" required>
+    <input type="text" name="title" placeholder="Title" required>
+    <input type="text" name="required_skills" placeholder="Required Skills" required>
+    <input type="text" name="location" placeholder="Location" required>
+    <input type="number" name="duration_months" placeholder="Duration (Months)" required>
+    <input type="number" name="seats" placeholder="Seats" required>
+    <input type="number" name="stipend_inr" placeholder="Stipend (INR)" required>
+    <input type="text" name="sector" placeholder="Sector" required>
+    <input type="text" name="is_demo" placeholder="Is Demo (Yes/No)" required>
+
+    <button type="submit">Upload Internship</button>
+  </form>
+
+  <div id="successPopup">✅ Internship Uploaded Successfully!</div>
+
+  <script>
+    document.getElementById("internshipForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const formData = new FormData(this);
+      
+      let response = await fetch("/upload", {
+        method: "POST",
+        body: formData
+      });
+
+      if (response.ok) {
+        let popup = document.getElementById("successPopup");
+        popup.style.display = "block";
+
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 3500);
+
+        this.reset(); // form clear ho jayega
+      }
+    });
+  </script>
+</body>
+</html>
